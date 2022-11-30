@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:id="@+id/f_create_book_edt_latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:hint="@string/author"
+        app:layout_constraintEnd_toEndOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintStart_toStartOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintTop_toBottomOf="@+id/f_create_book_edt_nom"
+        android:importantForAutofill="no" />
+    <EditText
+        android:id="@+id/f_create_book_edt_dateappellation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:hint="@string/author"
+        app:layout_constraintEnd_toEndOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintStart_toStartOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintTop_toBottomOf="@+id/f_create_book_edt_nom"
+        android:importantForAutofill="no" />
+    <EditText
+        android:id="@+id/f_create_book_edt_region"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:hint="@string/author"
+        app:layout_constraintEnd_toEndOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintStart_toStartOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintTop_toBottomOf="@+id/f_create_book_edt_nom"
+        android:importantForAutofill="no" />
+    <EditText
+        android:id="@+id/f_create_book_edt_lieu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:hint="@string/author"
+        app:layout_constraintEnd_toEndOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintStart_toStartOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintTop_toBottomOf="@+id/f_create_book_edt_nom"
+        android:importantForAutofill="no" />
+    <EditText
+        android:id="@+id/f_create_book_edt_telephone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:hint="@string/author"
+        app:layout_constraintEnd_toEndOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintStart_toStartOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintTop_toBottomOf="@+id/f_create_book_edt_nom"
+        android:importantForAutofill="no" />
+    <EditText
+        android:id="@+id/f_create_book_edt_departement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:hint="@string/author"
+        app:layout_constraintEnd_toEndOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintStart_toStartOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintTop_toBottomOf="@+id/f_create_book_edt_nom"
+        android:importantForAutofill="no" />
+    <EditText
+        android:id="@+id/f_create_book_edt_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:hint="@string/author"
+        app:layout_constraintEnd_toEndOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintStart_toStartOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintTop_toBottomOf="@+id/f_create_book_edt_nom"
+        android:importantForAutofill="no" />
+    <EditText
+        android:id="@+id/f_create_book_edt_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:hint="@string/author"
+        app:layout_constraintEnd_toEndOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintStart_toStartOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintTop_toBottomOf="@+id/f_create_book_edt_nom"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/f_create_book_edt_nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/author"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+    <EditText
+        android:id="@+id/f_create_book_edt_adresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:hint="@string/author"
+        app:layout_constraintEnd_toEndOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintStart_toStartOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintTop_toBottomOf="@+id/f_create_book_edt_nom"
+        android:importantForAutofill="no" />
+    <EditText
+        android:id="@+id/f_create_book_edt_longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:hint="@string/author"
+        app:layout_constraintEnd_toEndOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintStart_toStartOf="@+id/f_create_book_edt_nom"
+        app:layout_constraintTop_toBottomOf="@+id/f_create_book_edt_nom"
+        android:importantForAutofill="no" />
+
+
+    <EditText
+        android:id="@+id/f_create_book_edt_favori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        android:minHeight="48dp"
+        android:hint="@string/date"
+        app:layout_constraintEnd_toEndOf="@+id/f_create_book_edt_url"
+        app:layout_constraintStart_toStartOf="@+id/f_create_book_edt_url"
+        app:layout_constraintTop_toBottomOf="@+id/f_create_book_edt_url"
+        android:importantForAutofill="no" />
+
+
+    <Button
+        android:id="@+id/f_create_book_btn_save"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/f_create_book_edt_favori"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/f_create_book_edt_favori"
+        app:layout_constraintTop_toBottomOf="@+id/f_create_book_edt_favori"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

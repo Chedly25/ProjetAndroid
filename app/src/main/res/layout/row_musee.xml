@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/r_book_txv_nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Nom"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/r_book_txv_lieu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Lieu"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/r_book_txv_nom"
+        app:layout_constraintTop_toBottomOf="@+id/r_book_txv_nom" />
+
+    <TextView
+        android:id="@+id/r_book_txv_latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="8dp"
+        android:text="Latitude"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/r_book_txv_nom"
+        app:layout_constraintTop_toBottomOf="@+id/r_book_txv_nom" />
+
+    <TextView
+        android:id="@+id/r_book_txv_longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="48dp"
+        android:text="Longitude"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/r_book_txv_nom"
+        app:layout_constraintTop_toBottomOf="@+id/r_book_txv_nom" />
+
+    <TextView
+        android:id="@+id/r_book_txv_dateappellation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:text="Date Appellation"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/r_book_txv_nom"
+        app:layout_constraintTop_toBottomOf="@+id/r_book_txv_nom" />
+
+    <TextView
+        android:id="@+id/r_book_txv_region"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="100dp"
+        android:text="region"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/r_book_txv_nom"
+        app:layout_constraintTop_toBottomOf="@+id/r_book_txv_nom" />
+
+    <TextView
+        android:id="@+id/r_book_txv_telephone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="228dp"
+        android:text="telephone"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/r_book_txv_nom"
+        app:layout_constraintTop_toBottomOf="@+id/r_book_txv_nom" />
+
+    <TextView
+        android:id="@+id/r_book_txv_departement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="48dp"
+        android:text="Departement"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/r_book_txv_nom"
+        app:layout_constraintTop_toBottomOf="@+id/r_book_txv_nom" />
+
+    <TextView
+        android:id="@+id/r_book_txv_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="96dp"
+        android:text="url"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/r_book_txv_nom"
+        app:layout_constraintTop_toBottomOf="@+id/r_book_txv_nom" />
+
+    <TextView
+        android:id="@+id/r_book_txv_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="8dp"
+        android:text="id"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/r_book_txv_nom"
+        app:layout_constraintTop_toBottomOf="@+id/r_book_txv_nom" />
+
+    <TextView
+        android:id="@+id/r_book_txv_adresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="120dp"
+        android:text="Adresse"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/r_book_txv_nom"
+        app:layout_constraintTop_toBottomOf="@+id/r_book_txv_nom" />
+
+    <TextView
+        android:id="@+id/r_book_txv_favori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="96dp"
+        android:text="favori"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/r_book_txv_nom"
+        app:layout_constraintTop_toBottomOf="@+id/r_book_txv_nom" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
