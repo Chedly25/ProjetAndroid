@@ -3,6 +3,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import retrofit2.Call
 import retrofit2.Callback
@@ -13,37 +14,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity(), MuseumCreator {
 
     private val museums = Musees()
-    val SERVER_BASE_URL = "https://museums-cbjr.cleverapps.io/musees/"
 
-    val retrofit = Retrofit.Builder()
-        .baseUrl(SERVER_BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    val museumService = retrofit.create(MuseumService::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        museumService.getMuseums()
-            .enqueue(object : Callback<List<Musee>> {
-                override fun onResponse(
-                    call: Call<List<Musee>>,
-                    response: Response<List<Musee>>
-                ) {
-                    val allMuseums: List<Musee>? = response.body()
-                    println(allMuseums?.get(0))
-                }
-
-                override fun onFailure(call: Call<List<Musee>>, t: Throwable) {
-                    error("KO")
-
-                }
-            })
-        /**btnCreateBook.setOnClickListener {
-            displayCreateBookFragment()
-        }*/
+        displayMuseumListFragment()
     }
 
     private fun displayMuseumListFragment() {
