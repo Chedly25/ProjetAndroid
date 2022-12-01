@@ -19,14 +19,8 @@ class MuseumListFragment : Fragment() {
     private lateinit var museeAdapter: MuseeAdapter
     private lateinit var rcvMuseums: RecyclerView
     private var musees: ArrayList<Musee> = arrayListOf()
-    val SERVER_BASE_URL = "https://museums-cbjr.cleverapps.io/musees/"
 
-    val retrofit = Retrofit.Builder()
-        .baseUrl(SERVER_BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
 
-    val museumService = retrofit.create(MuseumService::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,21 +34,7 @@ class MuseumListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        museumService.getMuseums()
-            .enqueue(object : Callback<List<Musee>> {
-                override fun onResponse(
-                    call: Call<List<Musee>>,
-                    response: Response<List<Musee>>
-                ) {
-                    musees = response.body() as ArrayList<Musee>
-                    println(musees)
-                }
 
-                override fun onFailure(call: Call<List<Musee>>, t: Throwable) {
-                    error("KO")
-
-                }
-            })
         // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_museum_list, container, false)
 
