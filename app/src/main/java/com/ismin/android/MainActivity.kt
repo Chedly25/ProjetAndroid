@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity(), MuseumCreator {
                     val getAllMuseums: List<Musee>? = response.body() as ArrayList<Musee>
                     println(getAllMuseums)
                     getAllMuseums?.forEach { museums.addMusee(it) }
-                    displayMuseumListFragment()
                 }
 
                 override fun onFailure(call: Call<List<Musee>>, t: Throwable) {
