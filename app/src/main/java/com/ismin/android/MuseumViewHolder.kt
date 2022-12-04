@@ -1,6 +1,7 @@
 package com.ismin.android
 
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -18,5 +19,6 @@ class MuseumViewHolder(rootView: View): ViewHolder(rootView) {
     var nom = rootView.findViewById<TextView>(R.id.r_book_txv_nom)
     //var adresse = rootView.findViewById<TextView>(R.id.r_book_txv_adresse)
     //var longitude = rootView.findViewById<TextView>(R.id.r_book_txv_longitude)
-    var favori = rootView.findViewById<TextView>(R.id.r_book_txv_favori)
+    //var favori = rootView.findViewById<TextView>(R.id.r_book_txv_favori)
+    val btnFavori = rootView.findViewById<Button>(R.id.button3)
 }

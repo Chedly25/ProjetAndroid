@@ -7,6 +7,7 @@ import com.squareup.picasso.Picasso
 
 class MuseeAdapter(private var musees: List<Musee>) : RecyclerView.Adapter<MuseumViewHolder>() {
 
+    private var favoris: ArrayList<Musee> = arrayListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MuseumViewHolder {
         val row = LayoutInflater.from(parent.context).inflate(
             R.layout.row_musee, parent,
@@ -48,9 +49,12 @@ class MuseeAdapter(private var musees: List<Musee>) : RecyclerView.Adapter<Museu
                 Picasso.get().load(url).into(holder.logo);}
             "Provence-Alpes-Côte d'Azur" -> {val url = "https://www.regions-et-departements.fr/images/logos-regions/thumbs/logo-provence-alpes-cote-d-azur.png"
                 Picasso.get().load(url).into(holder.logo);}
-
         }
-
+        holder.btnFavori.setOnClickListener {
+            favoris.add(musees[position])
+            musees[position].favori = !musees[position].favori
+            println(favoris)
+        }
         //holder.telephone.text = musee.telephone
         //holder.departement.text = musee.departement
         //holder.url.text = musee.url
@@ -58,7 +62,7 @@ class MuseeAdapter(private var musees: List<Musee>) : RecyclerView.Adapter<Museu
         holder.nom.text = musee.nom
         //holder.adresse.text = musee.adresse
         //holder.longitude.text = musee.longitude.toString()
-        holder.favori.text = musee.favori.toString()
+        //holder.favori.text = musee.favori.toString()
     }
 
     override fun getItemCount(): Int {

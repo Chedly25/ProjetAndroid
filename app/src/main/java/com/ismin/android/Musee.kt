@@ -2,7 +2,7 @@ package com.ismin.android
 
 import java.util.*
 
-data class Musee(val latitude : Float,
+data class Musee(val latitude : Double,
                  val date_appellation : Date,
                  val region : String,
                  val lieu : String,
@@ -12,5 +12,5 @@ data class Musee(val latitude : Float,
                  val id : String,
                  val nom : String,
                  val adresse : String,
-                 val longitude : Float,
-                 val favori : Boolean): java.io.Serializable
+                 val longitude : Double,
+                 var favori : Boolean): java.io.Serializable
