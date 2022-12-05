@@ -56,6 +56,7 @@
         android:layout_marginStart="220dp"
         android:layout_marginTop="20dp"
         android:background="#00ffffff"
+        android:foreground="@drawable/pngtree_favorite_vector_icon_png_image_702559"
         android:src="@android:drawable/btn_star"
         android:text="Favori"
         app:layout_constraintStart_toStartOf="parent"

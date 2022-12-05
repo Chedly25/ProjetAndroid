@@ -5,31 +5,22 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class MuseeAdapter(private var musees: List<Musee>) : RecyclerView.Adapter<MuseumViewHolder>() {
+class FavoriteAdapter(private var favoris : ArrayList<Musee>) : RecyclerView.Adapter<FavoriteViewHolder>() {
 
-    private var favoris: ArrayList<Musee> = arrayListOf()
-
-    fun getFavoris() : ArrayList<Musee> {
-        return favoris
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
+        val row = LayoutInflater.from(parent.context).inflate(R.layout.row_musee, parent, false)
+        return FavoriteViewHolder(row)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MuseumViewHolder {
-        val row = LayoutInflater.from(parent.context).inflate(
-            R.layout.row_musee, parent,
-            false
-        )
-        return MuseumViewHolder(row)
-    }
-
-    override fun onBindViewHolder(holder: MuseumViewHolder, position: Int) {
-        val musee = musees[position]
+    override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
+        val musee = favoris[position]
         //holder.latitude.text = musee.latitude.toString()
         //holder.date_appellation.text = musee.date_appellation.toString()
         holder.region.text = musee.region
         holder.lieu.text = musee.lieu
         when (holder.region.text) {
             "Auvergne-Rhône-Alpes" -> {val url = "https://www.regions-et-departements.fr/images/logos-regions/thumbs/logo-auvergne-rhone-alpes.png"
-            Picasso.get().load(url).into(holder.logo);}
+                Picasso.get().load(url).into(holder.logo);}
             "Bourgogne-Franche-Comté" -> {val url = "https://www.regions-et-departements.fr/images/logos-regions/thumbs/logo-bourgogne-franche-comte.png"
                 Picasso.get().load(url).into(holder.logo);}
             "Bretagne" -> {val url = "https://www.regions-et-departements.fr/images/logos-regions/thumbs/logo-bretagne.png"
@@ -55,26 +46,14 @@ class MuseeAdapter(private var musees: List<Musee>) : RecyclerView.Adapter<Museu
             "Provence-Alpes-Côte d'Azur" -> {val url = "https://www.regions-et-departements.fr/images/logos-regions/thumbs/logo-provence-alpes-cote-d-azur.png"
                 Picasso.get().load(url).into(holder.logo);}
         }
-        holder.btnFavori.setOnClickListener {
-            favoris.add(musees[position])
-            musees[position].favori = !musees[position].favori
-            println(favoris)
-        }
         //holder.telephone.text = musee.telephone
         //holder.departement.text = musee.departement
         //holder.url.text = musee.url
         //holder.id.text = musee.id
         holder.nom.text = musee.nom
-        //holder.adresse.text = musee.adresse
-        //holder.longitude.text = musee.longitude.toString()
-        //holder.favori.text = musee.favori.toString()
     }
 
     override fun getItemCount(): Int {
-        return musees.size
-    }
-
-    fun refreshData(allMusees: List<Musee>) {
-        this.musees = allMusees;
+        return favoris.size
     }
 }

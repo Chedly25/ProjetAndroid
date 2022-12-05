@@ -1,8 +1,13 @@
 package com.ismin.android
+import FavoriteMuseumsActivity
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -117,13 +122,11 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-
                 override fun onFailure(call: Call<List<Musee>>, t: Throwable) {
                     error("KO")
                 }
             })
         displayMapsFragment()
-
     }
     private fun onDisplayMuseumList() {
         museumService.getMuseums()
@@ -145,6 +148,12 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_clean -> {
@@ -152,40 +161,16 @@ class MainActivity : AppCompatActivity() {
                 displayMuseumListFragment()
                 true
             }
+            R.id.favori -> {
+                var favoris = museumListFragment.getAdapter().getFavoris()
+                val intent = Intent(this, FavoriteMuseumsActivity::class.java)
+                intent.putExtra("favoris", favoris)
+                startActivity(intent)
+
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    /**override fun onMapReady(googleMap: GoogleMap) {
-    googleMap.addMarker(
-    MarkerOptions()
-    .position(LatLng(0.0, 0.0))
-    .title("Marker")
-    )
-    }*/
-    /**override fun onMapReady(p0: GoogleMap) {
-    mMap = p0
-    // Add a marker in Sydney and move the camera
-    museumService.getMuseums()
-    .enqueue(object : Callback<List<Musee>> {
-    override fun onResponse(
-    call: Call<List<Musee>>,
-    response: Response<List<Musee>>
-    ) {
-    val getAllMuseums: List<Musee>? = response.body() as ArrayList<Musee>
-    println(getAllMuseums)
-    getAllMuseums?.forEach { museums.addMusee(it) }
-    if (getAllMuseums != null) {
-    for(musee in getAllMuseums){
-    val coor = LatLng(musee.longitude, musee.latitude)
-    mMap.addMarker(MarkerOptions().position(coor).title("Marker in Sydney"))
-    mMap.moveCamera(CameraUpdateFactory.newLatLng(coor))
-    }
-    }
-    }
-    override fun onFailure(call: Call<List<Musee>>, t: Throwable) {
-    error("KO")
-    }
-    })
-    }*/
 }

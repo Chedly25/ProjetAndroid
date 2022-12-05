@@ -3,6 +3,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,17 +16,16 @@ class MuseumListFragment : Fragment() {
     private lateinit var museeAdapter: MuseeAdapter
     private lateinit var rcvMuseums: RecyclerView
     private var musees: ArrayList<Musee> = arrayListOf()
-    private var favoris: ArrayList<Musee> = arrayListOf()
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             musees = it.getSerializable(MUSEES) as ArrayList<Musee>
         }
-    }
 
+    }
+    fun getAdapter() : MuseeAdapter {
+        return museeAdapter
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,10 +35,8 @@ class MuseumListFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_museum_list, container, false)
 
         museeAdapter = MuseeAdapter(musees)
-
         rcvMuseums = rootView.findViewById(R.id.f_museum_list_rcv_museums)
         rcvMuseums.adapter = museeAdapter
-
         val linearLayoutManager = LinearLayoutManager(context)
         rcvMuseums.layoutManager = linearLayoutManager
         rcvMuseums.addItemDecoration(
@@ -47,7 +45,6 @@ class MuseumListFragment : Fragment() {
                 DividerItemDecoration.VERTICAL
             )
         )
-
         return rootView
     }
 
