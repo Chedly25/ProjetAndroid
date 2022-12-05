@@ -21,10 +21,14 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MainActivity : AppCompatActivity(), MuseumCreator {
+class MainActivity : AppCompatActivity() {
 
     private val museums = Musees()
+    private var btn1: Button? = null
+    private var btn2: Button? = null
     private lateinit var mMap: GoogleMap
+    private lateinit var mapFragment: MapsFragment
+    private lateinit var museumListFragment: MuseumListFragment
     val SERVER_BASE_URL = "https://museums-cbjr.cleverapps.io/"
 
     val retrofit = Retrofit.Builder()
@@ -37,23 +41,44 @@ class MainActivity : AppCompatActivity(), MuseumCreator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        btn1 = findViewById(R.id.btn1) as Button
+        btn2 = findViewById(R.id.btn2) as Button
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         //displayMapsFragment()
-        onDisplayMaps()
+        //onDisplayMaps()
+        btn1!!.setOnClickListener { onDisplayMuseumList() }
+
+        btn2!!.setOnClickListener { onDisplayMaps() }
+
         //onDisplayMuseumList()
     }
     private fun displayMuseumListFragment() {
-        val museumListFragment = MuseumListFragment.newInstance(museums.getAllMuseums())
+        museumListFragment = MuseumListFragment.newInstance(museums.getAllMuseums())
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_frame_layout, museumListFragment)
             .commit()
     }
 
     private fun displayMapsFragment() {
-        val mapFragment = SupportMapFragment.newInstance()
+        mapFragment = MapsFragment.newInstance(museums.getAllMuseums())
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.a_main_frame_layout, mapFragment)
+            .commit()
+    }
+
+    fun showMap() {
+        supportFragmentManager.beginTransaction()
+            .show(mapFragment)
+            .hide(museumListFragment)
+            .commit()
+    }
+
+    // Show the list fragment
+    fun showList() {
+        supportFragmentManager.beginTransaction()
+            .show(museumListFragment)
+            .hide(mapFragment)
             .commit()
     }
 
@@ -92,11 +117,12 @@ class MainActivity : AppCompatActivity(), MuseumCreator {
                     }
                 }
 
+
                 override fun onFailure(call: Call<List<Musee>>, t: Throwable) {
                     error("KO")
-
                 }
             })
+        displayMapsFragment()
 
     }
     private fun onDisplayMuseumList() {
@@ -119,12 +145,6 @@ class MainActivity : AppCompatActivity(), MuseumCreator {
             })
     }
 
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        super.onCreateOptionsMenu(menu)
-        menuInflater.inflate(R.menu.menu, menu)
-        return true
-    }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_clean -> {
@@ -136,42 +156,36 @@ class MainActivity : AppCompatActivity(), MuseumCreator {
         }
     }
 
-    override fun onMuseumCreated(musee: Musee) {
-        displayMuseumListFragment()
-    }
     /**override fun onMapReady(googleMap: GoogleMap) {
-        googleMap.addMarker(
-            MarkerOptions()
-                .position(LatLng(0.0, 0.0))
-                .title("Marker")
-        )
+    googleMap.addMarker(
+    MarkerOptions()
+    .position(LatLng(0.0, 0.0))
+    .title("Marker")
+    )
     }*/
-   /**override fun onMapReady(p0: GoogleMap) {
-        mMap = p0
-        // Add a marker in Sydney and move the camera
-        museumService.getMuseums()
-            .enqueue(object : Callback<List<Musee>> {
-                override fun onResponse(
-                    call: Call<List<Musee>>,
-                    response: Response<List<Musee>>
-                ) {
-                    val getAllMuseums: List<Musee>? = response.body() as ArrayList<Musee>
-                    println(getAllMuseums)
-                    getAllMuseums?.forEach { museums.addMusee(it) }
-                    if (getAllMuseums != null) {
-                        for(musee in getAllMuseums){
-                            val coor = LatLng(musee.longitude, musee.latitude)
-                            mMap.addMarker(MarkerOptions().position(coor).title("Marker in Sydney"))
-                            mMap.moveCamera(CameraUpdateFactory.newLatLng(coor))
-                        }
-                    }
-                }
-
-                override fun onFailure(call: Call<List<Musee>>, t: Throwable) {
-                    error("KO")
-
-                }
-            })
-
+    /**override fun onMapReady(p0: GoogleMap) {
+    mMap = p0
+    // Add a marker in Sydney and move the camera
+    museumService.getMuseums()
+    .enqueue(object : Callback<List<Musee>> {
+    override fun onResponse(
+    call: Call<List<Musee>>,
+    response: Response<List<Musee>>
+    ) {
+    val getAllMuseums: List<Musee>? = response.body() as ArrayList<Musee>
+    println(getAllMuseums)
+    getAllMuseums?.forEach { museums.addMusee(it) }
+    if (getAllMuseums != null) {
+    for(musee in getAllMuseums){
+    val coor = LatLng(musee.longitude, musee.latitude)
+    mMap.addMarker(MarkerOptions().position(coor).title("Marker in Sydney"))
+    mMap.moveCamera(CameraUpdateFactory.newLatLng(coor))
+    }
+    }
+    }
+    override fun onFailure(call: Call<List<Musee>>, t: Throwable) {
+    error("KO")
+    }
+    })
     }*/
 }
