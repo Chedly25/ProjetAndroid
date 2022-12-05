@@ -15,13 +15,22 @@
             android:layout_weight="1"
             android:id="@+id/btn1"
             android:layout_height="wrap_content"
-            android:text="Museum List " />
+            android:text="Museum List "
+            style="?android:attr/buttonBarButtonStyle" />
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
             android:id="@+id/btn2"
             android:layout_height="wrap_content"
-            android:text="Map" />
+            android:text="Map"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/btn3"
+            android:layout_height="wrap_content"
+            android:text="Infos "
+            style="?android:attr/buttonBarButtonStyle" />
 
     </LinearLayout>
 
