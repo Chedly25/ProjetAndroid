@@ -1,12 +1,15 @@
 package com.ismin.android
 
 import android.annotation.SuppressLint
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.withContext
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -73,9 +76,23 @@ class MuseeAdapter(private var musees: List<Musee>) : RecyclerView.Adapter<Museu
                 Picasso.get().load(url).into(holder.logo);}
         }
         holder.btnFavori.setOnClickListener {
-            favoris.add(musees[position])
             musees[position].favori = !musees[position].favori
-            println(favoris)
+            if(musees[position].favori) {
+                val favoriteIcon = ContextCompat.getDrawable(
+                    holder.btnFavori.context,
+                    R.drawable.ic_baseline_star_24
+                )
+                holder.btnFavori.setImageDrawable(favoriteIcon)
+                favoris.add(musees[position])
+            }
+            else {
+                val favoriteIcon = ContextCompat.getDrawable(
+                    holder.btnFavori.context,
+                    R.drawable.ic_baseline_star_border_24
+                )
+                holder.btnFavori.setImageDrawable(favoriteIcon)
+                favoris.remove(musees[position])
+            }
         }
         //holder.telephone.text = musee.telephone
         //holder.departement.text = musee.departement
@@ -122,8 +139,6 @@ class MuseeAdapter(private var musees: List<Musee>) : RecyclerView.Adapter<Museu
                 mainList.addAll(results!!.values as ArrayList<Musee>)
                 notifyDataSetChanged()
                 //println(mainList)
-
-
             }
         }
     }

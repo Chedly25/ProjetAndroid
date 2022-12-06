@@ -5,5 +5,9 @@
     <item android:title="Search" app:showAsAction="ifRoom|withText" app:actionViewClass="android.widget.SearchView" android:icon="@drawable/ic_search" android:id="@+id/searchIcon"> </item>
 
     <item android:title="Search" app:showAsAction="ifRoom|withText" android:icon="@drawable/ic_baseline_refresh_24" android:id="@+id/refreshIcon"> </item>
-
+    <item
+        android:id="@+id/favori"
+        android:icon="@drawable/ic_baseline_star_24"
+        android:title="favori"
+        app:showAsAction="always" />
 </menu>

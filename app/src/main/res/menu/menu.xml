@@ -4,6 +4,7 @@
 
     <item
         android:id="@+id/favori"
+        android:icon="@drawable/ic_baseline_star_24"
         android:title="favori"
         app:showAsAction="always" />
     <item

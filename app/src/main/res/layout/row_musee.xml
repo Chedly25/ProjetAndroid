@@ -4,41 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/r_book_txv_nom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="194dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
         android:text="Nom"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/r_book_txv_lieu"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/r_book_txv_lieu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="201dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Lieu"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="59dp" />
+        app:layout_constraintBottom_toTopOf="@+id/r_book_txv_region"
+        app:layout_constraintStart_toStartOf="@+id/r_book_txv_nom"
+        app:layout_constraintTop_toBottomOf="@+id/r_book_txv_nom" />
 
     <TextView
         android:id="@+id/r_book_txv_region"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="164dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="8dp"
         android:text="region"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="107dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="81dp"
-        android:layout_height="87dp"
+        android:layout_width="79dp"
+        android:layout_height="91dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,9 +58,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="340dp"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
         android:background="#00ffffff"
         android:src="@android:drawable/btn_star"
         android:text="Favori"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
