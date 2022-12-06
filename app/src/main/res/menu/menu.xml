@@ -4,7 +4,6 @@
 
     <item
         android:id="@+id/favori"
-        android:icon="@drawable/pngtree_favorite_vector_icon_png_image_702559"
         android:title="favori"
         app:showAsAction="always" />
     <item

@@ -2,11 +2,12 @@ package com.ismin.android
 
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-class MuseumViewHolder(rootView: View): ViewHolder(rootView) {
+class MuseumViewHolder(rootView: View, listener: MuseeAdapter.onItemClickListener): ViewHolder(rootView) {
     //var latitude = rootView.findViewById<TextView>(R.id.r_book_txv_latitude)
     //var date_appellation = rootView.findViewById<TextView>(R.id.r_book_txv_dateappellation)
     var region = rootView.findViewById<TextView>(R.id.r_book_txv_region)
@@ -20,5 +21,11 @@ class MuseumViewHolder(rootView: View): ViewHolder(rootView) {
     //var adresse = rootView.findViewById<TextView>(R.id.r_book_txv_adresse)
     //var longitude = rootView.findViewById<TextView>(R.id.r_book_txv_longitude)
     //var favori = rootView.findViewById<TextView>(R.id.r_book_txv_favori)
-    val btnFavori = rootView.findViewById<Button>(R.id.button3)
+    val btnFavori = rootView.findViewById<ImageButton>(R.id.button3)
+
+    init {
+        itemView.setOnClickListener {
+            listener.onItemClick(adapterPosition)
+        }
+    }
 }

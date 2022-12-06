@@ -15,7 +15,9 @@ private const val MUSEES = "musees"
 class MuseumListFragment : Fragment() {
     private lateinit var museeAdapter: MuseeAdapter
     private lateinit var rcvMuseums: RecyclerView
+    lateinit var communicator : Communicator
     private var musees: ArrayList<Musee> = arrayListOf()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -37,6 +39,14 @@ class MuseumListFragment : Fragment() {
         museeAdapter = MuseeAdapter(musees)
         rcvMuseums = rootView.findViewById(R.id.f_museum_list_rcv_museums)
         rcvMuseums.adapter = museeAdapter
+        museeAdapter.setOnItemClickListener(object : MuseeAdapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+                communicator = activity as Communicator
+                communicator.notify(position)
+
+            }
+
+        })
         val linearLayoutManager = LinearLayoutManager(context)
         rcvMuseums.layoutManager = linearLayoutManager
         rcvMuseums.addItemDecoration(

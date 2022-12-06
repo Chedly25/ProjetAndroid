@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -18,18 +20,20 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Communicator {
 
     private val museums = Musees()
     private var btn1: Button? = null
     private var btn2: Button? = null
     private var btn3: Button? = null
+    private lateinit var adapter :MuseeAdapter
     private lateinit var mMap: GoogleMap
     private lateinit var mapFragment: MapsFragment
     private lateinit var museumListFragment: MuseumListFragment
     private lateinit var infoFragment : InfoFragment
-    val SERVER_BASE_URL = "https://museums-cbjr.cleverapps.io/"
 
+    val SERVER_BASE_URL = "https://museums-cbjr.cleverapps.io/"
+    val ListMusee : ArrayList<Musee> = arrayListOf()
     val retrofit = Retrofit.Builder()
         .baseUrl(SERVER_BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
@@ -41,12 +45,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        adapter = MuseeAdapter(/*this,*/ListMusee)
         btn1 = findViewById(R.id.btn1) as Button
         btn2 = findViewById(R.id.btn2) as Button
         btn3 = findViewById(R.id.btn3) as Button
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         //displayMapsFragment()
         //onDisplayMaps()
+
         btn1!!.setOnClickListener { onDisplayMuseumList() }
 
         btn2!!.setOnClickListener { onDisplayMaps() }
@@ -76,21 +82,12 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    fun showMap() {
+    private fun displayMuseumFiltered(){
+        val museumListFragment = MuseumListFragment.newInstance(adapter.getMainList())
         supportFragmentManager.beginTransaction()
-            .show(mapFragment)
-            .hide(museumListFragment)
+            .replace(R.id.a_main_frame_layout, museumListFragment)
             .commit()
     }
-
-    // Show the list fragment
-    fun showList() {
-        supportFragmentManager.beginTransaction()
-            .show(museumListFragment)
-            .hide(mapFragment)
-            .commit()
-    }
-
     private fun onDisplayMaps() {
         museumService.getMuseums()
             .enqueue(object : Callback<List<Musee>> {
@@ -140,6 +137,11 @@ class MainActivity : AppCompatActivity() {
                     response: Response<List<Musee>>
                 ) {
                     val getAllMuseums: List<Musee>? = response.body() as ArrayList<Musee>
+                    if (getAllMuseums != null) {
+                        for(i in 1 until getAllMuseums.size){
+                            ListMusee.add(getAllMuseums.get(i))
+                        }
+                    }
                     println(getAllMuseums)
                     getAllMuseums?.forEach { museums.addMusee(it) }
                     displayMuseumListFragment()
@@ -152,9 +154,27 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_search, menu)
+        val search : MenuItem? = menu?.findItem(R.id.searchIcon)
+        val searchView :SearchView  = search?.actionView as SearchView
+
+        searchView.queryHint = "Search something"
+        searchView.imeOptions = EditorInfo.IME_ACTION_DONE
+
+        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.filter.filter(newText)
+                //updateMuseums(adapter.getMainList())
+                displayMuseumFiltered()
+                return false
+            }
+        })
         super.onCreateOptionsMenu(menu)
-        menuInflater.inflate(R.menu.menu, menu)
         return true
     }
 
@@ -173,8 +193,24 @@ class MainActivity : AppCompatActivity() {
 
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun notify(index:Int) {
+
+        val intent = Intent(this, ShowActivity::class.java)
+
+        intent.putExtra("nom",ListMusee.get(index).nom)
+        intent.putExtra("adresse",ListMusee.get(index).adresse)
+        intent.putExtra("url",ListMusee.get(index).url)
+        intent.putExtra("telephone",ListMusee.get(index).telephone)
+        intent.putExtra("lieu",ListMusee.get(index).lieu)
+        intent.putExtra("date",ListMusee.get(index).date_appellation.toString())
+        intent.putExtra("departement",ListMusee.get(index).departement)
+        startActivity(intent)
+        finish()
     }
 
 }

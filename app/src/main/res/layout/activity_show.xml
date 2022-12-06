@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/r_musee_txv_nom"
+        android:layout_width="174dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        android:text="Nom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/r_musee_txv_date"
+        android:layout_width="306dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
+        android:text="date"
+        app:layout_constraintStart_toStartOf="@+id/r_musee_txv_url"
+        app:layout_constraintTop_toBottomOf="@+id/r_musee_txv_url" />
+
+    <TextView
+        android:id="@+id/r_musee_txv_departement"
+        android:layout_width="307dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
+        android:text="departement"
+        app:layout_constraintStart_toStartOf="@+id/r_musee_txv_adresse"
+        app:layout_constraintTop_toBottomOf="@+id/r_musee_txv_adresse" />
+
+    <TextView
+        android:id="@+id/r_musee_txv_adresse"
+        android:layout_width="309dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="24dp"
+        android:text="adresse"
+        app:layout_constraintStart_toStartOf="@+id/r_musee_txv_lieu"
+        app:layout_constraintTop_toBottomOf="@+id/r_musee_txv_lieu" />
+
+    <TextView
+        android:id="@+id/r_musee_txv_lieu"
+        android:layout_width="305dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="24dp"
+        android:text="lieu"
+        app:layout_constraintBottom_toTopOf="@+id/r_musee_txv_adresse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_musee_txv_nom"
+        app:layout_constraintVertical_bias="0.839" />
+
+    <TextView
+        android:id="@+id/r_musee_txv_telephone"
+        android:layout_width="306dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="24dp"
+        android:text="telephone"
+        app:layout_constraintStart_toStartOf="@+id/r_musee_txv_departement"
+        app:layout_constraintTop_toBottomOf="@+id/r_musee_txv_departement" />
+
+    <Button
+        android:id="@+id/r_musee_butt_retour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="586dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="70dp"
+        android:text="Retour"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_musee_txv_nom" />
+
+    <TextView
+        android:id="@+id/r_musee_txv_url"
+        android:layout_width="309dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="24dp"
+        android:text="url"
+        app:layout_constraintStart_toStartOf="@+id/r_musee_txv_telephone"
+        app:layout_constraintTop_toBottomOf="@+id/r_musee_txv_telephone" />
+</androidx.constraintlayout.widget.ConstraintLayout>

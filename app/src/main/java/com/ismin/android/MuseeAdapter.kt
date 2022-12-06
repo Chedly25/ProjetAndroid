@@ -1,16 +1,33 @@
 package com.ismin.android
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import java.util.*
+import kotlin.collections.ArrayList
 
-class MuseeAdapter(private var musees: List<Musee>) : RecyclerView.Adapter<MuseumViewHolder>() {
+class MuseeAdapter(private var musees: List<Musee>) : RecyclerView.Adapter<MuseumViewHolder>(),
+    Filterable {
 
     private var favoris: ArrayList<Musee> = arrayListOf()
+    private lateinit var  mListener : onItemClickListener
+    private val searchList = musees
+    private  var  mainList : ArrayList<Musee> = arrayListOf()
 
     fun getFavoris() : ArrayList<Musee> {
         return favoris
+    }
+
+    interface onItemClickListener{
+        fun onItemClick(position :Int)
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener) {
+        mListener=listener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MuseumViewHolder {
@@ -18,7 +35,7 @@ class MuseeAdapter(private var musees: List<Musee>) : RecyclerView.Adapter<Museu
             R.layout.row_musee, parent,
             false
         )
-        return MuseumViewHolder(row)
+        return MuseumViewHolder(row, mListener)
     }
 
     override fun onBindViewHolder(holder: MuseumViewHolder, position: Int) {
@@ -76,5 +93,42 @@ class MuseeAdapter(private var musees: List<Musee>) : RecyclerView.Adapter<Museu
 
     fun refreshData(allMusees: List<Musee>) {
         this.musees = allMusees;
+    }
+
+    override fun getFilter(): Filter {
+        return object : Filter(){
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val filteredList = ArrayList<Musee>()
+                if(constraint!!.isBlank() or constraint!!.isEmpty()){
+                    filteredList.addAll(searchList)
+                }else{
+                    val filterPattern = constraint.toString().toLowerCase(Locale.getDefault()).trim()
+                    searchList.forEach {
+                        if(it.nom.toLowerCase().contains(filterPattern)){
+                            filteredList.add(it)
+                            //println(filteredList.add(it))
+
+                        }
+                    }
+                }
+                val result = FilterResults()
+                result.values = filteredList
+                return result
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                mainList.clear()
+                mainList.addAll(results!!.values as ArrayList<Musee>)
+                notifyDataSetChanged()
+                //println(mainList)
+
+
+            }
+        }
+    }
+
+    fun getMainList():ArrayList<Musee>{
+        return mainList
     }
 }

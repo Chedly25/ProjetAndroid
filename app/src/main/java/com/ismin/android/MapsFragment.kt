@@ -29,6 +29,7 @@ class MapsFragment : Fragment() {
         arguments?.let {
             museums = it.getSerializable(MUSEES) as ArrayList<Musee>
         }
+        println(museums)
     }
 
     override fun onCreateView(
