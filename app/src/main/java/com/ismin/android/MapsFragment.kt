@@ -14,11 +14,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import retrofit2.Call
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MapsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 private const val MUSEES = "musees"
 
 class MapsFragment : Fragment() {
@@ -36,14 +31,13 @@ class MapsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
         ): View? {
-        // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_maps, container, false)
         val mapFragment =
             childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync { mMap ->
             mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
 
-            mMap.clear() //clear old markers
+            mMap.clear()
 
             val googlePlex = CameraPosition.builder()
                 .target(LatLng( 43.4525982, 5.4717363))
@@ -62,9 +56,6 @@ class MapsFragment : Fragment() {
         return rootView
         }
 
-        /**override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        }*/
     companion object {
         @JvmStatic
         fun newInstance(musees: ArrayList<Musee>) =

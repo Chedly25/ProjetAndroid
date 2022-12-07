@@ -9,12 +9,6 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.CameraPosition
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,7 +25,6 @@ class MainActivity : AppCompatActivity(), Communicator {
     var usingPage : Int = 0
     private lateinit var adapter :MuseeAdapter
     private  var favoris :ArrayList<Musee> = arrayListOf()
-    private lateinit var mMap: GoogleMap
     private lateinit var mapFragment: MapsFragment
     private lateinit var museumListFragment: MuseumListFragment
     private lateinit var infoFragment : InfoFragment
@@ -53,9 +46,6 @@ class MainActivity : AppCompatActivity(), Communicator {
         btn1 = findViewById(R.id.btn1) as Button
         btn2 = findViewById(R.id.btn2) as Button
         btn3 = findViewById(R.id.btn3) as Button
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        //displayMapsFragment()
-        //onDisplayMaps()
 
         onDisplayMuseumList()
 
@@ -70,8 +60,6 @@ class MainActivity : AppCompatActivity(), Communicator {
         btn3!!.setOnClickListener {
             usingPage =3
             displayInfoFragment() }
-        //onDisplayMuseumList()
-        // favoris = adapter.getInitialFavoris()
     }
     private fun displayMuseumListFragment() {
         museumListFragment = MuseumListFragment.newInstance(museums.getAllMuseums())
@@ -112,30 +100,8 @@ class MainActivity : AppCompatActivity(), Communicator {
                     val getAllMuseums: List<Musee>? = response.body() as ArrayList<Musee>
                     println(getAllMuseums)
                     getAllMuseums?.forEach { museums.addMusee(it) }
-                    val mapFragment =
-                        supportFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
-                    mapFragment?.getMapAsync { mMap ->
-                        mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
-
-                        mMap.clear()
-
-                        val googlePlex = CameraPosition.builder()
-                            .target(LatLng( 43.4525982, 5.4717363))
-                            .zoom(10f)
-                            .bearing(0f)
-                            .tilt(45f)
-                            .build()
-                        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 10000, null)
-
-                        if (getAllMuseums != null) {
-                            getAllMuseums.forEach {
-                                val location = LatLng(it.latitude, it.longitude)
-                                mMap.addMarker(MarkerOptions().position(location).title(it.nom))
-                            }
-                        }
 
                     }
-                }
 
                 override fun onFailure(call: Call<List<Musee>>, t: Throwable) {
                     error("KO")
@@ -160,17 +126,13 @@ class MainActivity : AppCompatActivity(), Communicator {
                             }
                         }
                     }
-                    println(getAllMuseums)
                     getAllMuseums?.forEach { museums.addMusee(it) }
                     displayMuseumListFragment()
                 }
-
                 override fun onFailure(call: Call<List<Musee>>, t: Throwable) {
                     error("KO")
-
                 }
             })
-        //adapter.
     }
 
     fun updateFavoris(name : String) {
@@ -203,7 +165,6 @@ class MainActivity : AppCompatActivity(), Communicator {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 adapter.filter.filter(newText)
-                //updateMuseums(adapter.getMainList())
                 displayMuseumFiltered()
                 return false
             }
@@ -218,7 +179,6 @@ class MainActivity : AppCompatActivity(), Communicator {
                 val intent = Intent(this, FavoriteMuseumsActivity::class.java)
                 intent.putExtra("favoris", favoris)
                 startActivity(intent)
-                //finish()
                 true
             }
             R.id.refreshIcon->{

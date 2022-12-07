@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
 import android.widget.TextView
 
 class ShowActivity : AppCompatActivity() {
@@ -60,6 +59,7 @@ class ShowActivity : AppCompatActivity() {
 
         }
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         super.onCreateOptionsMenu(menu)

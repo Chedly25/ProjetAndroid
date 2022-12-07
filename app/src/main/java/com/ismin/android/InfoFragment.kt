@@ -10,12 +10,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-/**
- * A simple [Fragment] subclass.
- * Use the [InfoFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class InfoFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
