@@ -2,7 +2,7 @@
   <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Logo_Mines_Saint-%C3%89tienne.svg/langfr-225px-Logo_Mines_Saint-%C3%89tienne.svg.png/" target="blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Logo_Mines_Saint-%C3%89tienne.svg/langfr-225px-Logo_Mines_Saint-%C3%89tienne.svg.png" align="left" width="80" alt="Nest Logo" /></a>
 </p>
 <p align="left">
-  <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Android_logo_2019_%28stacked%29.svg/langfr-144px-Android_logo_2019_%28stacked%29.svg.png" target="blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Android_logo_2019_%28stacked%29.svg/langfr-144px-Android_logo_2019_%28stacked%29.svg.png" align="right" width="120" alt="Nest Logo" /></a>
+  <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Android_logo_2019_%28stacked%29.svg/langfr-144px-Android_logo_2019_%28stacked%29.svg.png" target="blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Android_logo_2019_%28stacked%29.svg/langfr-144px-Android_logo_2019_%28stacked%29.svg.png" align="right" width="80" alt="Nest Logo" /></a>
 </p> <br />
 <br />
 <br />
