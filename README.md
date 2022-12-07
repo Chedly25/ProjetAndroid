@@ -17,28 +17,28 @@ d'afficher une map Google montrant tous les marqueurs et enfin une rubrique info
 ## Fonctionnement
 
 Cette application est composée de 3 activités.
-L'activité principale comporte 3 fragments : Un fragment pour la liste des musées, un pour la map et un pour les informations sur l'application.
-La deuxième activité montre les favoris de l'utilisateur quand il appuie sur un bouton du menu
-La troisième activité montre les détails d'un musée quand on appuie dessus.<br />
+L'activité principale comporte 3 fragments : Un fragment pour la liste des musées, un pour la map et un pour les informations sur l'application.  
+La deuxième activité montre les favoris de l'utilisateur quand il appuie sur un bouton du menu  
+La troisième activité montre les détails d'un musée quand on appuie dessus.  
 
 L'application démarre avec l'affichage de la liste complète de tous les musées, plus particulièrement leur nom,
 le lieu où il est situé(château etc), sa région et une image du logo de la région. Cette liste s'affiche dans le fragment Museums List
-et affiche des données sous forme de RecyclerView. <br />
+et affiche des données sous forme de RecyclerView.  
 Sur chaque Item et donc musée de la Liste il existe un onClickListner qui permettait le demarrage
 de la seconde activité qui avait pour role de donner plus d'informations sur le musée sélectionné. Pour ne pas rester bloquer indéfiniment dans cette 
-activité, Nous avons ajouté un bouton dans la toolBar. En cliquant sur ce bouton, on retourne sur le Fragment qui affiche la liste de tous les musées.<br />
+activité, Nous avons ajouté un bouton dans la toolBar. En cliquant sur ce bouton, on retourne sur le Fragment qui affiche la liste de tous les musées.  
 Sur les items du recycleView, on ajoute un bouton qui permet de mettre un musée en favori.Le bouton en question est un ImageButton et il est représenté 
 de base comme un étoile vide. En actionnant ce bouton, on ajoute le musée concerné dans la liste de favoris
 et l'étoile se remplit. Si l'utilisateur veut consulter ses musées favoris, on a ajouté un bouton qui 
-affiche les favoris en RecyclerView. <br />
+affiche les favoris en RecyclerView.  
 Dans la toolbar de la MainActivity, on a ajouté une barre de recherche qui filtre les musées par nom, par région ou encore par département.
-On a aussi ajouté un bouton "Refresh" dans la toolbar pour refresh le fragment dans lequel se trouve l'utilisateur.
-<br />
+On a aussi ajouté un bouton "Refresh" dans la toolbar pour refresh le fragment dans lequel se trouve l'utilisateur.  
+
 On a créé un second fragment qui affiche la carte du monde avec les marqueurs désignant les musées de France (Métropolitaine et DOM-TOM). 
 La carte nous situe directement à Gardanne (Bonus). On peut zoomer dans la carte et les marqueurs donnent le nom du musée.
 Finalement, un troisième fragment donne des informations sur l'application, notamment les données utilisées, leur source, leur explication ou encore les 
-librairies utilisées dans sa conception.
-<br />
+librairies utilisées dans sa conception.  
+
 Parmi les librairies qu'on a utilisé, on a appelé la librairie Picasso pour charger des images sur le web,
 la librairie spécifique à Google Maps pour l'affichage de la map et des marqueurs. 
 
