@@ -21,6 +21,7 @@ class MuseumViewHolder(rootView: View, listener: MuseeAdapter.onItemClickListene
     //var adresse = rootView.findViewById<TextView>(R.id.r_book_txv_adresse)
     //var longitude = rootView.findViewById<TextView>(R.id.r_book_txv_longitude)
     //var favori = rootView.findViewById<TextView>(R.id.r_book_txv_favori)
+    var favori = rootView.findViewById<TextView>(R.id.favori)
     val btnFavori = rootView.findViewById<ImageButton>(R.id.button3)
 
     init {

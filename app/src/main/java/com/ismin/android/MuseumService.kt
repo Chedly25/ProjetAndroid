@@ -10,6 +10,6 @@ interface MuseumService {
     @GET("/musees")
     fun getMuseums(): Call<List<Musee>>
 
-    @PUT("api/musees/{nom}")
-    fun updateFavori(@Path("nom") nom: String): Call<Musee>
+    @PUT("musees/{nom}")
+    fun addOrRemoveFromFavorite(@Path("nom") nom: String): Call<Musee>
 }

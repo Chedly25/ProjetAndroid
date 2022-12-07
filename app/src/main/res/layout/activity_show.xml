@@ -66,20 +66,6 @@
         app:layout_constraintStart_toStartOf="@+id/r_musee_txv_departement"
         app:layout_constraintTop_toBottomOf="@+id/r_musee_txv_departement" />
 
-    <Button
-        android:id="@+id/r_musee_butt_retour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginTop="586dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="70dp"
-        android:text="Retour"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/r_musee_txv_nom" />
-
     <TextView
         android:id="@+id/r_musee_txv_url"
         android:layout_width="309dp"
@@ -88,4 +74,5 @@
         android:text="url"
         app:layout_constraintStart_toStartOf="@+id/r_musee_txv_telephone"
         app:layout_constraintTop_toBottomOf="@+id/r_musee_txv_telephone" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

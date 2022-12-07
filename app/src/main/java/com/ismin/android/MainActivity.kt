@@ -1,4 +1,5 @@
 package com.ismin.android
+
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -23,10 +24,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity(), Communicator {
 
     private val museums = Musees()
+
     private var btn1: Button? = null
     private var btn2: Button? = null
     private var btn3: Button? = null
+    var usingPage : Int = 0
     private lateinit var adapter :MuseeAdapter
+    private  var favoris :ArrayList<Musee> = arrayListOf()
     private lateinit var mMap: GoogleMap
     private lateinit var mapFragment: MapsFragment
     private lateinit var museumListFragment: MuseumListFragment
@@ -45,7 +49,7 @@ class MainActivity : AppCompatActivity(), Communicator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        adapter = MuseeAdapter(/*this,*/ListMusee)
+        adapter = MuseeAdapter(ListMusee,this)
         btn1 = findViewById(R.id.btn1) as Button
         btn2 = findViewById(R.id.btn2) as Button
         btn3 = findViewById(R.id.btn3) as Button
@@ -53,14 +57,22 @@ class MainActivity : AppCompatActivity(), Communicator {
         //displayMapsFragment()
         //onDisplayMaps()
 
-        btn1!!.setOnClickListener { onDisplayMuseumList() }
+        onDisplayMuseumList()
 
-        btn2!!.setOnClickListener { onDisplayMaps() }
+        btn1!!.setOnClickListener {
+            onDisplayMuseumList()
+            usingPage =1}
 
-        btn3!!.setOnClickListener { displayInfoFragment() }
+        btn2!!.setOnClickListener {
+            onDisplayMaps()
+            usingPage=2 }
+
+        btn3!!.setOnClickListener {
+            usingPage =3
+            displayInfoFragment() }
         //onDisplayMuseumList()
+        // favoris = adapter.getInitialFavoris()
     }
-
     private fun displayMuseumListFragment() {
         museumListFragment = MuseumListFragment.newInstance(museums.getAllMuseums())
         supportFragmentManager.beginTransaction()
@@ -105,10 +117,10 @@ class MainActivity : AppCompatActivity(), Communicator {
                     mapFragment?.getMapAsync { mMap ->
                         mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
 
-                        mMap.clear() //clear old markers
+                        mMap.clear()
 
                         val googlePlex = CameraPosition.builder()
-                            .target(LatLng( 36.806389, 10.181667))
+                            .target(LatLng( 43.4525982, 5.4717363))
                             .zoom(10f)
                             .bearing(0f)
                             .tilt(45f)
@@ -131,18 +143,6 @@ class MainActivity : AppCompatActivity(), Communicator {
             })
         displayMapsFragment()
     }
-    private fun updateData(nom : String) {
-        museumService.updateFavori(nom)
-        .enqueue(object : Callback<Musee> {
-            override fun onFailure(call: Call<Musee>, t: Throwable) {
-                // Handle the error
-            }
-
-            override fun onResponse(call: Call<Musee>, response: Response<Musee>) {
-                // Handle the response
-            }
-        })
-    }
 
     private fun onDisplayMuseumList() {
         museumService.getMuseums()
@@ -155,6 +155,9 @@ class MainActivity : AppCompatActivity(), Communicator {
                     if (getAllMuseums != null) {
                         for(i in 1 until getAllMuseums.size){
                             ListMusee.add(getAllMuseums.get(i))
+                            if(getAllMuseums.get(i).favori){
+                                favoris.add(getAllMuseums.get(i))
+                            }
                         }
                     }
                     println(getAllMuseums)
@@ -166,6 +169,22 @@ class MainActivity : AppCompatActivity(), Communicator {
                     error("KO")
 
                 }
+            })
+        //adapter.
+    }
+
+    fun updateFavoris(name : String) {
+        museumService.addOrRemoveFromFavorite(name)
+            .enqueue(object :Callback<Musee>{
+                override fun onResponse(call: Call<Musee>, response: Response<Musee>) {
+                    val getMuseums: List<Musee>? = response.body() as ArrayList<Musee>
+
+                }
+
+                override fun onFailure(call: Call<Musee>, t: Throwable) {
+                    println(t)
+                }
+
             })
     }
 
@@ -195,17 +214,25 @@ class MainActivity : AppCompatActivity(), Communicator {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.menu_clean -> {
-                museums.clean()
-                displayMuseumListFragment()
-                true
-            }
             R.id.favori -> {
-                var favoris = museumListFragment.getAdapter().getFavoris()
-                favoris.forEach() {updateData(it.nom)}
                 val intent = Intent(this, FavoriteMuseumsActivity::class.java)
                 intent.putExtra("favoris", favoris)
                 startActivity(intent)
+                //finish()
+                true
+            }
+            R.id.refreshIcon->{
+                if(usingPage==1){
+                    onDisplayMuseumList()
+
+                }
+                else if(usingPage==2){
+                    onDisplayMaps()
+
+                }
+                else if(usingPage==3){
+
+                }
 
                 true
             }
@@ -226,7 +253,14 @@ class MainActivity : AppCompatActivity(), Communicator {
         intent.putExtra("date",ListMusee.get(index).date_appellation.toString())
         intent.putExtra("departement",ListMusee.get(index).departement)
         startActivity(intent)
-        finish()
+        //finish()
     }
+    fun setFavoris(musee:Musee){
+        favoris.add(musee)
+    }
+    fun removeFavoris(musee:Musee){
+        favoris.remove(musee)
+    }
+
 
 }

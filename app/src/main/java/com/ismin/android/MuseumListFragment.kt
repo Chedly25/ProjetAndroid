@@ -1,4 +1,5 @@
 package com.ismin.android
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,12 +24,11 @@ class MuseumListFragment : Fragment() {
         arguments?.let {
             musees = it.getSerializable(MUSEES) as ArrayList<Musee>
         }
-    }
 
+    }
     fun getAdapter() : MuseeAdapter {
         return museeAdapter
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,7 +37,7 @@ class MuseumListFragment : Fragment() {
         // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_museum_list, container, false)
 
-        museeAdapter = MuseeAdapter(musees)
+        museeAdapter = MuseeAdapter(musees, this.context as MainActivity)
         rcvMuseums = rootView.findViewById(R.id.f_museum_list_rcv_museums)
         rcvMuseums.adapter = museeAdapter
         museeAdapter.setOnItemClickListener(object : MuseeAdapter.onItemClickListener{

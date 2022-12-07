@@ -46,7 +46,7 @@ class MapsFragment : Fragment() {
             mMap.clear() //clear old markers
 
             val googlePlex = CameraPosition.builder()
-                .target(LatLng( 36.806389, 10.181667))
+                .target(LatLng( 43.4525982, 5.4717363))
                 .zoom(10f)
                 .bearing(0f)
                 .tilt(45f)

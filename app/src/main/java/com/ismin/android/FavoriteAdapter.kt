@@ -2,6 +2,7 @@ package com.ismin.android
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
@@ -14,8 +15,6 @@ class FavoriteAdapter(private var favoris : ArrayList<Musee>) : RecyclerView.Ada
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
         val musee = favoris[position]
-        //holder.latitude.text = musee.latitude.toString()
-        //holder.date_appellation.text = musee.date_appellation.toString()
         holder.region.text = musee.region
         holder.lieu.text = musee.lieu
         when (holder.region.text) {
@@ -46,11 +45,27 @@ class FavoriteAdapter(private var favoris : ArrayList<Musee>) : RecyclerView.Ada
             "Provence-Alpes-Côte d'Azur" -> {val url = "https://www.regions-et-departements.fr/images/logos-regions/thumbs/logo-provence-alpes-cote-d-azur.png"
                 Picasso.get().load(url).into(holder.logo);}
         }
-        //holder.telephone.text = musee.telephone
-        //holder.departement.text = musee.departement
-        //holder.url.text = musee.url
-        //holder.id.text = musee.id
         holder.nom.text = musee.nom
+        holder.favori.text=musee.favori.toString()
+        when(holder.favori.text){
+            "true"->{
+                val favoriteIcon = ContextCompat.getDrawable(
+                    holder.btnFavori.context,
+                    R.drawable.ic_baseline_star_24
+
+                )
+                holder.btnFavori.setImageDrawable(favoriteIcon)
+            }
+            "false"->{
+                val favoriteIcon = ContextCompat.getDrawable(
+                    holder.btnFavori.context,
+                    R.drawable.ic_baseline_star_border_24
+
+                )
+                holder.btnFavori.setImageDrawable(favoriteIcon)
+            }
+
+        }
     }
 
     override fun getItemCount(): Int {

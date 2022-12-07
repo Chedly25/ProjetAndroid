@@ -3,14 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/favori"
-        android:icon="@drawable/ic_baseline_star_24"
+        android:id="@+id/retourne"
+        android:icon="@drawable/ic_baseline_arrow_back_24"
         android:title="favori"
         app:showAsAction="always" />
-    <item
-        android:id="@+id/menu_clean"
-        android:icon="@drawable/ic_baseline_delete_forever_24"
-        android:title="Clean books"
-        android:iconTint="#FFF"
-        app:showAsAction="ifRoom" />
+
 </menu>
