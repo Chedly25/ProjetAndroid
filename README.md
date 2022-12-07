@@ -3,63 +3,23 @@ _(juste en dessous des badges sympatiques à placer)_
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
 
-Une petite description du projet
+Après la création de l'API avec les données des musées de France, nous passons à la création de
+l'application. Cette application permet d'afficher la liste de tous les musées, de les mettre en favori et d'afficher ces favoris,
+d'afficher tous les détails d'un musée en appuyant dessus,
+d'afficher une map Google montrant tous les marqueurs et enfin une rubrique informations sur l'application.
 
-## Pour commencer
+## Fonctionnement
 
-Entrez ici les instructions pour bien débuter avec votre projet...
-
-### Pré-requis
-
-Ce qu'il est requis pour commencer avec votre projet...
-
-- Programme 1
-- Programme 2
-- etc...
+Cette application est composée de 3 activités.
+L'activité principale comporte 3 fragments : Un fragment pour la liste des musées, un pour la map et un pour les informations sur l'application.
+La deuxième activité montre les favoris de l'utilisateur quand il appuie sur un bouton du menu
+La troisième activité montre les détails d'un musée quand on appuie dessus.
 
 ### Installation
 
-Les étapes pour installer votre programme....
-
-Dites ce qu'il faut faire...
-
-_exemple_: Executez la commande ``telnet mapscii.me`` pour commencer ensuite [...]
-
-
 Ensuite vous pouvez montrer ce que vous obtenez au final...
 
-## Démarrage
-
-Dites comment faire pour lancer votre projet
-
-## Fabriqué avec
-
-Entrez les programmes/logiciels/ressources que vous avez utilisé pour développer votre projet
-
-_exemples :_
-* [Materialize.css](http://materializecss.com) - Framework CSS (front-end)
-* [Atom](https://atom.io/) - Editeur de textes
-
-## Contributing
-
-Si vous souhaitez contribuer, lisez le fichier [CONTRIBUTING.md](https://example.org) pour savoir comment le faire.
-
-## Versions
-Listez les versions ici
-_exemple :_
-**Dernière version stable :** 5.0
-**Dernière version :** 5.1
-Liste des versions : [Cliquer pour afficher](https://github.com/your/project-name/tags)
-_(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
-
 ## Auteurs
-Listez le(s) auteur(s) du projet ici !
-* **Jhon doe** _alias_ [@outout14](https://github.com/outout14)
+- [Chedly Boukhris](https://github.com/Chedly25)
+- [Kouassi Jean Raïce Kouakou ](https://github.com/jeanraice)
 
-Lisez la liste des [contributeurs](https://github.com/your/project/contributors) pour voir qui à aidé au projet !
-
-_(pour le lien mettez simplement l'URL de votre projet suivi de ``/contirubors``)_
-
-## License
-
-Ce projet est sous licence ``exemple: WTFTPL`` - voir le fichier [LICENSE.md](LICENSE.md) pour plus d'informations
