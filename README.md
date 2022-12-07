@@ -15,8 +15,9 @@ d'afficher tous les détails d'un musée en appuyant dessus,
 d'afficher une map Google montrant tous les marqueurs et enfin une rubrique informations sur l'application.
 
 <p align="left">
-  <a href="https://www.svgrepo.com/show/425954/animated-icons-11.svg" target="blank"><img src="https://www.svgrepo.com/show/425954/animated-icons-11.svg" align="right" width="80" alt="Nest Logo" /></a>
+  <a href="https://www.svgrepo.com/show/425954/animated-icons-11.svg" target="blank"><img src="https://www.svgrepo.com/show/425954/animated-icons-11.svg" align="left" width="40" alt="Nest Logo" /></a>
 </p>
+
 ## Fonctionnement
 
 Cette application est composée de 3 activités.
