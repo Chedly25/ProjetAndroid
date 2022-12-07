@@ -23,11 +23,12 @@ class MuseumListFragment : Fragment() {
         arguments?.let {
             musees = it.getSerializable(MUSEES) as ArrayList<Musee>
         }
-
     }
+
     fun getAdapter() : MuseeAdapter {
         return museeAdapter
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

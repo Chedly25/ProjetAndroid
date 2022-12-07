@@ -1,42 +1,65 @@
-Part of Android Development - ISMIN
+# Titre du projet
+_(juste en dessous des badges sympatiques à placer)_
 
-Course followed by students of Mines St Etienne, ISMIN - M2 Computer Science.
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
 
-[![Mines St Etienne](./logo.png)](https://www.mines-stetienne.fr/)
+Une petite description du projet
 
-# TP5: HTTP Requests
+## Pour commencer
 
-## 📝 Goal
+Entrez ici les instructions pour bien débuter avec votre projet...
 
-The goal is to link the app to a Rest API using [Retrofit](https://square.github.io/retrofit/):
+### Pré-requis
 
-You can either use:
- - your own Book Rest API
- - a generic one accessible on: https://bookshelf-gme.cleverapps.io/books
+Ce qu'il est requis pour commencer avec votre projet...
 
-Preparatory work:
-- Copy everything from previous TP (except the README)
+- Programme 1
+- Programme 2
+- etc...
 
-First:
-- Add retrofit dependencies (see course slides) to `build.gradle`
-- Add internet permission in `AndroidManifest`
+### Installation
 
-Then:
-- Create a `BookService` interface
-- Add a `getAllBooks` function with annotations matching the API
-- Create an instance of `retrofit` and instantiate `BookService` with it in `MainActivity`
-- Call `getAllBooks` in the `onCreate` function and display the books returned by the server
+Les étapes pour installer votre programme....
 
-- Add a `createBook` function with annotations matching the API
-- Call `createBook` to post a new book to the server and then display the list of books (including the freshly created one)
+Dites ce qu'il faut faire...
 
-Finally:
-- Add some Toasts to properly display and handle network errors
+_exemple_: Executez la commande ``telnet mapscii.me`` pour commencer ensuite [...]
 
-## 🚀 Getting Started
 
- - Start Android Studio
- - Select `Open an existing Android Studio project` and pick this directory
+Ensuite vous pouvez montrer ce que vous obtenez au final...
 
-That's it! You can code!
+## Démarrage
 
+Dites comment faire pour lancer votre projet
+
+## Fabriqué avec
+
+Entrez les programmes/logiciels/ressources que vous avez utilisé pour développer votre projet
+
+_exemples :_
+* [Materialize.css](http://materializecss.com) - Framework CSS (front-end)
+* [Atom](https://atom.io/) - Editeur de textes
+
+## Contributing
+
+Si vous souhaitez contribuer, lisez le fichier [CONTRIBUTING.md](https://example.org) pour savoir comment le faire.
+
+## Versions
+Listez les versions ici
+_exemple :_
+**Dernière version stable :** 5.0
+**Dernière version :** 5.1
+Liste des versions : [Cliquer pour afficher](https://github.com/your/project-name/tags)
+_(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
+
+## Auteurs
+Listez le(s) auteur(s) du projet ici !
+* **Jhon doe** _alias_ [@outout14](https://github.com/outout14)
+
+Lisez la liste des [contributeurs](https://github.com/your/project/contributors) pour voir qui à aidé au projet !
+
+_(pour le lien mettez simplement l'URL de votre projet suivi de ``/contirubors``)_
+
+## License
+
+Ce projet est sous licence ``exemple: WTFTPL`` - voir le fichier [LICENSE.md](LICENSE.md) pour plus d'informations

@@ -124,7 +124,6 @@ class MuseeAdapter(private var musees: List<Musee>) : RecyclerView.Adapter<Museu
                         if(it.nom.toLowerCase().contains(filterPattern)){
                             filteredList.add(it)
                             //println(filteredList.add(it))
-
                         }
                     }
                 }

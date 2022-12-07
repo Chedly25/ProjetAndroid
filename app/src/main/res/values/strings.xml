@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android App</string>
+    <string name="app_name">Museumeter</string>
     <string name="date">Date</string>
     <string name="title">Title</string>
     <string name="author">Author</string>

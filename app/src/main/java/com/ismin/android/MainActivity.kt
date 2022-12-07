@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity(), Communicator {
         btn3!!.setOnClickListener { displayInfoFragment() }
         //onDisplayMuseumList()
     }
+
     private fun displayMuseumListFragment() {
         museumListFragment = MuseumListFragment.newInstance(museums.getAllMuseums())
         supportFragmentManager.beginTransaction()
@@ -88,6 +89,7 @@ class MainActivity : AppCompatActivity(), Communicator {
             .replace(R.id.a_main_frame_layout, museumListFragment)
             .commit()
     }
+
     private fun onDisplayMaps() {
         museumService.getMuseums()
             .enqueue(object : Callback<List<Musee>> {
@@ -129,6 +131,19 @@ class MainActivity : AppCompatActivity(), Communicator {
             })
         displayMapsFragment()
     }
+    private fun updateData(nom : String) {
+        museumService.updateFavori(nom)
+        .enqueue(object : Callback<Musee> {
+            override fun onFailure(call: Call<Musee>, t: Throwable) {
+                // Handle the error
+            }
+
+            override fun onResponse(call: Call<Musee>, response: Response<Musee>) {
+                // Handle the response
+            }
+        })
+    }
+
     private fun onDisplayMuseumList() {
         museumService.getMuseums()
             .enqueue(object : Callback<List<Musee>> {
@@ -187,6 +202,7 @@ class MainActivity : AppCompatActivity(), Communicator {
             }
             R.id.favori -> {
                 var favoris = museumListFragment.getAdapter().getFavoris()
+                favoris.forEach() {updateData(it.nom)}
                 val intent = Intent(this, FavoriteMuseumsActivity::class.java)
                 intent.putExtra("favoris", favoris)
                 startActivity(intent)
