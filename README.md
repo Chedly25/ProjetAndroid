@@ -51,6 +51,10 @@ librairies utilisées dans sa conception.
 Parmi les librairies qu'on a utilisé, on a appelé la librairie Picasso pour charger des images sur le web,
 la librairie spécifique à Google Maps pour l'affichage de la map et des marqueurs. 
 
+<p align="left">
+  <a href="https://www.svgrepo.com/show/8295/smartphone.svg" target="blank"><img src="https://www.svgrepo.com/show/8295/smartphone.svg" align="left" width="40" alt="Nest Logo" /></a>
+</p>
+
 ### Exécution
 Au vu de la taille du dataset, il se peut que l'émulateur intégré dans Android Studio prenne beaucoup de 
 temps pour extraire les données de l'API donc il est conseillé d'essayer l'application sur un téléphone 
