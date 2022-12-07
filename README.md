@@ -36,8 +36,12 @@ et affiche des données sous forme de RecyclerView.
 
 Sur chaque Item de la Liste il existe un onClickListner qui permettait le demarrage
 de la seconde activité qui avait pour role de donner plus d'informations sur le musée sélectionné. Pour ne pas rester bloquer indéfiniment dans cette 
-activité, Nous avons ajouté un bouton dans la toolBar. En cliquant sur ce bouton, on retourne sur le Fragment qui affiche la liste de tous les musées.  
-  
+activité, Nous avons ajouté un bouton dans la toolBar. En cliquant sur ce bouton, on retourne sur le Fragment qui affiche la liste de tous les musées.
+
+<p align="left">
+  <a href="https://www.svgrepo.com/show/51018/favorite.svg" target="blank"><img src="https://www.svgrepo.com/show/51018/favorite.svg" align="left" width="40" alt="Nest Logo" /></a>
+</p>
+
 Sur les items du recycleView, on ajoute un bouton qui permet de mettre un musée en favori.Le bouton en question est un ImageButton et il est représenté 
 de base comme un étoile vide. En actionnant ce bouton, on ajoute le musée concerné dans la liste de favoris
 et l'étoile se remplit. Si l'utilisateur veut consulter ses musées favoris, on a ajouté un bouton qui 
