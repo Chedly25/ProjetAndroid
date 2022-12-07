@@ -29,7 +29,10 @@ La troisième activité montre les détails d'un musée quand on appuie dessus.
 L'application démarre avec l'affichage de la liste complète de tous les musées, plus particulièrement leur nom,
 le lieu où il est situé(château etc), sa région et une image du logo de la région. Cette liste s'affiche dans le fragment Museums List
 et affiche des données sous forme de RecyclerView.  
-  
+
+<p align="left">
+  <a href="https://www.svgrepo.com/show/20687/list.svg" target="blank"><img src="https://www.svgrepo.com/show/20687/list.svg" align="left" width="40" alt="Nest Logo" /></a>
+</p>
 
 Sur chaque Item de la Liste il existe un onClickListner qui permettait le demarrage
 de la seconde activité qui avait pour role de donner plus d'informations sur le musée sélectionné. Pour ne pas rester bloquer indéfiniment dans cette 
@@ -42,6 +45,10 @@ affiche les favoris en RecyclerView.
   
 Dans la toolbar de la MainActivity, on a ajouté une barre de recherche qui filtre les musées par nom, par région ou encore par département.
 On a aussi ajouté un bouton "Refresh" dans la toolbar pour refresh le fragment dans lequel se trouve l'utilisateur.  
+
+<p align="left">
+  <a href="https://www.svgrepo.com/show/79097/maps.svg" target="blank"><img src="https://www.svgrepo.com/show/79097/maps.svg" align="left" width="40" alt="Nest Logo" /></a>
+</p>
 
 On a créé un second fragment qui affiche la carte du monde avec les marqueurs désignant les musées de France (Métropolitaine et DOM-TOM). 
 La carte nous situe directement à Gardanne (Bonus). On peut zoomer dans la carte et les marqueurs donnent le nom du musée.
