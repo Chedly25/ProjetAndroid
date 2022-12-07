@@ -29,7 +29,7 @@ class ShowActivity : AppCompatActivity() {
             if(bundle.getString("date")!=null){
                 show_date.text = "Date d' appelation :" + bundle.getString("date")
             }else{
-                show_date.text = "Date d' appelation :" + "pas certifié musée de France"
+                show_date.text = "Date d' appelation :" + "pas disponible"
             }
             if(bundle.getString("adresse")!=null){
                 show_adresse.text = "Adresse : " + bundle.getString("adresse")
