@@ -190,7 +190,7 @@ class MuseeAdapter(private var musees: List<Musee>, private val activity: MainAc
                 }else{
                     val filterPattern = constraint.toString().toLowerCase(Locale.getDefault()).trim()
                     searchList.forEach {
-                        if(it.nom.toLowerCase().contains(filterPattern)){
+                        if(it.nom.toLowerCase().contains(filterPattern) ||it.region.toLowerCase().contains(filterPattern)||it.departement.toLowerCase().contains(filterPattern)){
                             filteredList.add(it)
                             //println(filteredList.add(it))
 

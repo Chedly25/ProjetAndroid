@@ -26,12 +26,38 @@ class ShowActivity : AppCompatActivity() {
         val bundle : Bundle? =  intent.extras
         if (bundle != null) {
             show_nom.text = "Nom du musée : " + "\n" + bundle.getString("nom")
-            show_date.text = "Date d' appelation :" + bundle.getString("date")
-            show_adresse.text ="Adresse : " + bundle.getString("adresse")
-            show_lieu.text = "Lieu : "+ bundle.getString("lieu")
-            show_telephone.text = "Telephone : " + bundle.getString("telephone")
-            show_url.text = "Site web : "+ bundle.getString("url")
-            show_departement.text = "Département : "+ bundle.getString("departement")
+
+            if(bundle.getString("date")!=null){
+                show_date.text = "Date d' appelation :" + bundle.getString("date")
+            }else{
+                show_date.text = "Date d' appelation :" + "pas certifié musée de France"
+            }
+            if(bundle.getString("adresse")!=null){
+                show_adresse.text = "Adresse : " + bundle.getString("adresse")
+            }else{
+                show_adresse.text = "Adresse : " + "pas  disponible"
+            }
+            if(bundle.getString("lieu")!=null){
+                show_lieu.text = "Lieu : "+ bundle.getString("lieu")
+            }else{
+                show_lieu.text = "Lieu : "+ "non disponible"
+            }
+            if(bundle.getString("telephone")!=null){
+                show_telephone.text = "Telephone : " + bundle.getString("telephone")
+            }else{
+                show_telephone.text = "Telephone : " + "non disponible"
+            }
+            if(bundle.getString("url")!=null){
+                show_url.text = "Site web : "+ bundle.getString("url")
+            }else{
+                show_url.text = "Site web : " + "non disponible"
+            }
+            if(bundle.getString("departement")!=null){
+                show_departement.text = "Département : "+ bundle.getString("departement")
+            }else{
+                show_departement.text = "Département : "+ "non disponible"
+            }
+
         }
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
