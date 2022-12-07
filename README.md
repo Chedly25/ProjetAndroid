@@ -14,6 +14,9 @@ l'application. Cette application permet d'afficher la liste de tous les musées,
 d'afficher tous les détails d'un musée en appuyant dessus,
 d'afficher une map Google montrant tous les marqueurs et enfin une rubrique informations sur l'application.
 
+<p align="left">
+  <a href="https://www.flaticon.com/free-icons/process" title="process icons">Process icons created by Freepik - Flaticon</a>
+</p>
 ## Fonctionnement
 
 Cette application est composée de 3 activités.
