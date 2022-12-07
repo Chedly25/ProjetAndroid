@@ -15,7 +15,7 @@ d'afficher tous les détails d'un musée en appuyant dessus,
 d'afficher une map Google montrant tous les marqueurs et enfin une rubrique informations sur l'application.
 
 <p align="left">
-  <a href="https://www.flaticon.com/free-icons/process" title="process icons">Process icons created by Freepik - Flaticon</a>
+  <a href="https://www.svgrepo.com/show/425954/animated-icons-11.svg" target="blank"><img src="https://www.svgrepo.com/show/425954/animated-icons-11.svg" align="right" width="80" alt="Nest Logo" /></a>
 </p>
 ## Fonctionnement
 
